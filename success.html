@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Successful</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+  <h2>🎉 Subscription Successful!</h2>
+  <p>Thank you for subscribing. Scan the QR code to download the app.</p>
+
+  <div id="qrcode"></div>
+
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+    text: "./redirect.html", // Use your actual local IP
+    width: 200,
+    height: 200,
+    });
+  </script>
+</body>
+</html>
