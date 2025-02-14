@@ -2,37 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscription Successful</title>
     <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FAF5F5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            height: 40px;
+        }
+        .header h2 {
+            color: #404659;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .steps p {
+            font-size: 16px;
+        }
+        .qr-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #canvas {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
 </head>
 <body>
-  <h2>🎉 Subscription Successful!</h2>
-  <p>Thank you for subscribing. Scan the QR code to download the app.</p>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/krunalScaletech/qr-code-redirect/refs/heads/main/qrcode/minddocLogo.svg" alt="MindDoc Logo">
+            <h2>You're All Set!</h2>
+            <p>Welcome to MindDoc Plus! Your journey to better mental well-being <strong>starts now</strong>.</p>
+        </div>
 
-<div id="canvas"></div>
-<script type="text/javascript">
+        <div class="qr-section">
+            <div id="canvas"></div>
+            <div class="steps">
+                <p><strong>Step 1.</strong> Download the app by following <a href="https://krunalscaletech.github.io/qr-code-redirect/qrcode/redirect.html" style="color: #FF6B6B;">this link</a> or scanning the QR code.</p>
+                <p><strong>Step 2.</strong> Register with the <strong>same email address you just used during payment</strong>.</p>
+                <p><strong>Step 3.</strong> Dive into MindDoc Plus and start exploring your path to wellness!</p>
+            </div>
+        </div>
+    </div>
 
-    const qrCode = new QRCodeStyling({
-        width: 300,
-        height: 300,
-        type: "svg",
-        data: "https://krunalscaletech.github.io/qr-code-redirect/qrcode/redirect.html",
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
-        dotsOptions: {
-            color: "#404659",
-            type: "rounded"
-        },
-        backgroundOptions: {
-            color: "#FAF5F5",
-        },
-        imageOptions: {
-            crossOrigin: "anonymous",
-            margin: 20
-        }
-    });
-
-    qrCode.append(document.getElementById("canvas"));
-    qrCode.download({ name: "qr", extension: "svg" });
-</script>
+    <script type="text/javascript">
+        const qrCode = new QRCodeStyling({
+            width: 150,
+            height: 150,
+            type: "svg",
+            data: "https://krunalscaletech.github.io/qr-code-redirect/qrcode/redirect.html",
+            image: "https://raw.githubusercontent.com/krunalScaletech/qr-code-redirect/refs/heads/main/qrcode/minddocLogo.svg",
+            dotsOptions: {
+                color: "#404659",
+                type: "dots"
+            },
+            cornersSquareOptions: {
+                color: "#404659",
+                type: "square"
+            },
+            cornersDotOptions: {
+                color: "#404659",
+                type: "square"
+            },
+            backgroundOptions: {
+                color: "#FAF5F5",
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 10
+            }
+        });
+        
+        qrCode.append(document.getElementById("canvas"));
+    </script>
 </body>
 </html>
