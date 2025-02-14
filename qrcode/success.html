@@ -57,7 +57,7 @@
         <div class="qr-section">
             <div id="canvas"></div>
             <div class="steps">
-                <p><strong>Step 1.</strong> Download the app by following <a href="https://krunalscaletech.github.io/qr-code-redirect/qrcode/redirect.html" style="color: #FF6B6B;">this link</a> or scanning the QR code.</p>
+                <p><strong>Step 1.</strong> Download the app by following <a href="#" onclick="openAppStoreLink(event)" style="color: #FF6B6B;">this link</a> or scanning the QR code.</p>
                 <p><strong>Step 2.</strong> Register with the <strong>same email address you just used during payment</strong>.</p>
                 <p><strong>Step 3.</strong> Dive into MindDoc Plus and start exploring your path to wellness!</p>
             </div>
@@ -65,6 +65,23 @@
     </div>
 
     <script type="text/javascript">
+       function openAppStoreLink(event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const platform = navigator.platform.toLowerCase();
+
+            let appStoreLink = "";
+
+            if (/iPad|iPhone|iPod/.test(userAgent) || platform.includes("iphone") || platform.includes("ipad") || platform.includes("mac")) {
+                // iOS & macOS → App Store
+                appStoreLink = "https://apps.apple.com/us/app/minddoc-mental-health-support/id1052216403";
+            } else {
+                // Android → Google Play
+                appStoreLink = "http://play.google.com/store/apps/details?id=de.minddoc.diga&pli=1";
+            } 
+            window.location.href = appStoreLink;
+        }
         const qrCode = new QRCodeStyling({
             width: 150,
             height: 150,
