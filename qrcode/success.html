@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscription Successful</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Subscription Successful</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
 </head>
 <body>
   <h2>🎉 Subscription Successful!</h2>
   <p>Thank you for subscribing. Scan the QR code to download the app.</p>
 
-  <div id="qrcode"></div>
+<div id="canvas"></div>
+<script type="text/javascript">
 
-  <script>
-    new QRCode(document.getElementById("qrcode"), {
-    text: "./redirect.html", // Use your actual local IP
-    width: 200,
-    height: 200,
+    const qrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        type: "svg",
+        data: "https://krunalscaletech.github.io/qr-code-redirect/qrcode/redirect.html",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+        dotsOptions: {
+            color: "#404659",
+            type: "rounded"
+        },
+        backgroundOptions: {
+            color: "#FAF5F5",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            margin: 20
+        }
     });
-  </script>
+
+    qrCode.append(document.getElementById("canvas"));
+    qrCode.download({ name: "qr", extension: "svg" });
+</script>
 </body>
 </html>
